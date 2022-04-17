@@ -11,7 +11,34 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
+let fs = require('fs');
+
+let getDirs = function (dir) {
+    // get all 'files' in this directory
+    // filter directories
+    return fs.readdirSync(dir).filter((file) => {
+        return fs.statSync(`${dir}/${file}`).isDirectory();
+    });
+};
+
+let getFiles = function (dir) {
+    // get all 'files' in this directory
+    // filter directories
+    return fs.readdirSync(dir).filter((file) => {
+        return fs.statSync(`${dir}/${file}`).isFile();
+    });
+};
+
+getDirs('resources/js').forEach(function (dirpath) {
+    getFiles('resources/js/' + dirpath).forEach(function (filepath) {
+        mix.js(
+            'resources/js/' + dirpath + '/' + filepath,
+            'public/js/' + dirpath + '/' + filepath
+        );
+    });
+});
+
+mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css',[
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
