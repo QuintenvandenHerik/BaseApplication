@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ModulesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(ModulesController::class)->middleware(['auth'])->group(function () {
+    Route::get('/', 'index')->name('dashboard');
+    Route::get('/modules/create', 'create')->name('modules.create');
+    Route::post('/modules', 'store')->name('modules.store');
+    Route::get('/modules/{module}', 'show')->name('modules.show');
+    Route::get('/modules/{module}/edit', 'show')->name('modules.edit');
+    Route::put('/modules/{module}', 'show')->name('modules.update');
+    Route::delete('/modules/{module}', 'show')->name('modules.destroy');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

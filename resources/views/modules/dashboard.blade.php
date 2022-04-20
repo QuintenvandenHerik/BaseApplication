@@ -1,18 +1,20 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="leading-[1.95] font-semibold text-xl text-primary-default dark:text-dark-primary-default leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-        <x-button>
-            {{ __('Create Module') }}
+    <x-header>
+        <x-slot name="name">
+            Dashboard
+        </x-slot>
+        <x-button id="create-module" class="ml-3">
+            Create Module
         </x-button>
-    </x-slot>
+    </x-header>
+
+    @include('modules.create')
 
     <div class="py-8">
-        <div class="grid grid-cols-3 gap-8 max-w-full mx-auto sm:px-6 lg:px-8">
-            <!-- Temporary feature ## REMOVE WHEN IMPLEMENTED ## -->
+        <div class="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4 4xl:grid-cols-5 gap-8 max-w-full mx-auto sm:px-6 lg:px-8">
+            <!-- TODO: Temporary feature ## REMOVE WHEN IMPLEMENTED ## -->
             @if(!isset($modules))
-                <?php $modules = [1,2,3,4]; ?>
+                <?php $modules = [1,2,3,4,5,6]; ?>
             @endif
 
             <!-- Loop Available Modules -->

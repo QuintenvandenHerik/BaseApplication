@@ -9,6 +9,12 @@ module.exports = {
     ],
 
     theme: {
+        screens: {
+            'xs': '0px',
+            ...defaultTheme.screens,
+            '3xl': '1920px',
+            '4xl': '2800px',
+        },
         extend: {
             colors: {
                 'primary': {

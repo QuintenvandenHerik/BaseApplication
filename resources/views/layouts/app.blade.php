@@ -18,20 +18,24 @@
     </head>
     <body class="font-sans antialiased">
         <div class="bg-secondary dark:bg-dark-secondary">
-            <!-- Navbar -->
             <div class="relative flex">
+                <!-- Navbar -->
                 @include('layouts.navigation')
 
                 <div class="flex-1 min-h-screen">
                     <!-- Page Heading -->
                     <header class="bg-white dark:bg-dark-black shadow h-fit">
-                        <div class="flex justify-between max-w-full py-4 px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-between max-w-full py-6 px-4 sm:px-6 lg:px-8">
                             {{ $header }}
                         </div>
                     </header>
 
                     <!-- Page Content -->
                     <main>
+                        <!-- Modal -->
+                        <div class="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 grid place-items-center h-screen" id="modal-backdrop">
+                            {{ $modal }}
+                        </div>
                         {{ $slot }}
                     </main>
                 </div>

@@ -13,6 +13,8 @@ class CreateModulesTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('url');
+            $table->string('image_url');
+            $table->string('status');
             $table->timestamps();
         });
     }
