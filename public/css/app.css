@@ -631,6 +631,21 @@ select {
 .z-10 {
   z-index: 10;
 }
+.col-start-1 {
+  grid-column-start: 1;
+}
+.col-start-2 {
+  grid-column-start: 2;
+}
+.col-end-7 {
+  grid-column-end: 7;
+}
+.col-end-3 {
+  grid-column-end: 3;
+}
+.col-end-4 {
+  grid-column-end: 4;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1491,11 +1506,31 @@ select {
 }
 @media (min-width: 0px) {
 
+  .xs\:col-start-1 {
+    grid-column-start: 1;
+  }
+
+  .xs\:col-end-1 {
+    grid-column-end: 1;
+  }
+
+  .xs\:col-end-3 {
+    grid-column-end: 3;
+  }
+
   .xs\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 @media (min-width: 640px) {
+
+  .sm\:col-start-1 {
+    grid-column-start: 1;
+  }
+
+  .sm\:col-end-1 {
+    grid-column-end: 1;
+  }
 
   .sm\:ml-0 {
     margin-left: 0px;
@@ -1568,6 +1603,18 @@ select {
 }
 @media (min-width: 768px) {
 
+  .md\:col-start-1 {
+    grid-column-start: 1;
+  }
+
+  .md\:col-end-1 {
+    grid-column-end: 1;
+  }
+
+  .md\:col-end-2 {
+    grid-column-end: 2;
+  }
+
   .md\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -1586,6 +1633,22 @@ select {
 }
 @media (min-width: 1024px) {
 
+  .lg\:col-start-1 {
+    grid-column-start: 1;
+  }
+
+  .lg\:col-start-2 {
+    grid-column-start: 2;
+  }
+
+  .lg\:col-end-2 {
+    grid-column-end: 2;
+  }
+
+  .lg\:col-end-3 {
+    grid-column-end: 3;
+  }
+
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1597,17 +1660,57 @@ select {
 }
 @media (min-width: 1536px) {
 
+  .\32xl\:col-start-2 {
+    grid-column-start: 2;
+  }
+
+  .\32xl\:col-end-3 {
+    grid-column-end: 3;
+  }
+
   .\32xl\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 @media (min-width: 1920px) {
 
+  .\33xl\:col-start-2 {
+    grid-column-start: 2;
+  }
+
+  .\33xl\:col-start-1 {
+    grid-column-start: 1;
+  }
+
+  .\33xl\:col-end-4 {
+    grid-column-end: 4;
+  }
+
+  .\33xl\:col-end-3 {
+    grid-column-end: 3;
+  }
+
   .\33xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 @media (min-width: 2800px) {
+
+  .\34xl\:col-start-2 {
+    grid-column-start: 2;
+  }
+
+  .\34xl\:col-start-3 {
+    grid-column-start: 3;
+  }
+
+  .\34xl\:col-end-4 {
+    grid-column-end: 4;
+  }
+
+  .\34xl\:col-end-5 {
+    grid-column-end: 5;
+  }
 
   .\34xl\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));

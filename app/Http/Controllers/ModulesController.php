@@ -24,11 +24,13 @@ class ModulesController extends Controller
             'name' => 'required',
             'description' => 'required',
             'url' => 'required',
-            'image_url' => 'required',
-            'status' => 'required',
         ]);
 
-        Module::create($request->all());
+        // TODO: create saveImage functionality
+        $imageUrl = saveImage($request['image']);
+        $request['image_url'] = $imageUrl;
+        $request['status'] = 1;
+        Module::create($request->except('_token'));
 
         return redirect()->route('dashboard')
             ->with('success','Module created successfully.');

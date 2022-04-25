@@ -31,6 +31,7 @@ window.onload = function() {
     });
 
     function toggleModal(modalID){
+        $("body").toggleClass("overflow-hidden");
         if (lastActivatedModal) {
             $(lastActivatedModal).toggleClass("hidden");
             $("#modal-backdrop").toggleClass("hidden");
@@ -43,6 +44,30 @@ window.onload = function() {
         lastActivatedModal = modalID;
     }
     // End Modal
+
+    // Start Form Submit
+    $("form").submit(function(e) {
+        // TODO: fix only allowed forms
+        if($(this).attr('action').includes('login') || $(this).attr('action').includes('register') || $(this).attr('action').includes('logout')) {
+            return;
+        }
+        e.preventDefault();
+        let formData = $(this).serializeArray();
+        $.ajax({
+            url: $(this).attr('action'),
+            type:'POST',
+            data: formData,
+            success: function(msg)
+            {
+                console.log(msg);
+            },
+            error: function(error)
+            {
+                console.log(error)
+            }
+        });
+    });
+    // End Form Submit
 
     // Start App
     function unset(variable) {

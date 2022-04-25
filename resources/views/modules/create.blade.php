@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-form-card>
-        <form method="POST" action="{{ route('modules.create') }}">
+        <form method="POST" action="{{ route('modules.store') }}">
         @csrf
 
         <!-- Module Name -->

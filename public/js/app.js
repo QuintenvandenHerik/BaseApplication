@@ -5665,6 +5665,8 @@ window.onload = function () {
   });
 
   function toggleModal(modalID) {
+    $("body").toggleClass("overflow-hidden");
+
     if (lastActivatedModal) {
       $(lastActivatedModal).toggleClass("hidden");
       $("#modal-backdrop").toggleClass("hidden");
@@ -5676,8 +5678,30 @@ window.onload = function () {
     modalBackdrop.toggleClass("hidden");
     lastActivatedModal = modalID;
   } // End Modal
-  // Start App
+  // Start Form Submit
 
+
+  $("form").submit(function (e) {
+    // TODO: fix only allowed forms
+    if ($(this).attr('action').includes('login') || $(this).attr('action').includes('register') || $(this).attr('action').includes('logout')) {
+      return;
+    }
+
+    e.preventDefault();
+    var formData = $(this).serializeArray();
+    $.ajax({
+      url: $(this).attr('action'),
+      type: 'POST',
+      data: formData,
+      success: function success(msg) {
+        console.log(msg);
+      },
+      error: function error(_error) {
+        console.log(_error);
+      }
+    });
+  }); // End Form Submit
+  // Start App
 
   function unset(variable) {
     variable = null;
