@@ -27,8 +27,8 @@ class ModulesController extends Controller
         ]);
 
         // TODO: create saveImage functionality
-        $imageUrl = saveImage($request['image']);
-        $request['image_url'] = $imageUrl;
+        // $imageUrl = saveImage($request['image']);
+        $request['image_url'] = $imageUrl ?? '';
         $request['status'] = 1;
         Module::create($request->except('_token'));
 
